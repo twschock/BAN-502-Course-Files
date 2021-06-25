@@ -3,9 +3,7 @@ output:
   word_document: default
   html_document: default
 ---
-# Thomas Schocklin
-## 6/20/2022
-### Module 6: Clustering 
+
 
 
 
@@ -24,8 +22,7 @@ str(trucks)
 summary(trucks)
 ```
 
-Task 1: Plot the relationship between Distance and Speeding. Describe this relationship. Does there appear
-to be any natural clustering of drivers?
+
 
 
 ```{r}
@@ -33,13 +30,10 @@ ggplot(trucks, aes(Speeding,Distance)) +
   geom_point()
 ```
 
-I see potential for 2 to 4 clusters. A cluster betweek the distance of 10 and 75 with a speed of 0 to 10. Another potential clusters of distance of 10 to 75 and a speed of 20 to 65. THe other two clusters show a distance of 125 to 240 with a speeding of 10 to 25. Another cluster with 125 to 240 distance and a speed of 35 to 100. 
 
 
-Task 2: As we did in the second clustering example, create a new data frame called “trucks_cleaned” that
-contains the scaled and centered variables. Two notes: 1) The “predictor” variables in the recipe are “Distance”
-and “Speeding” and 2) There is no need to create dummy variables as there are no categorical variables in
-the data.
+
+
 
 
 ```{r}
@@ -99,10 +93,6 @@ p1
 ```
 
 
-Task 3 Use k-Means clustering with two clusters (k=2) to cluster the “trucks_cleaned” data frame. Use a
-random number seed of 64. Use augment to add the resulting clusters object to the the “trucks” data frame.
-Design an appropriate visualization to visualize the clusters. Comment on the clusters.
-
 
 ```{r}
 set.seed(64)
@@ -124,9 +114,6 @@ ggplot(trucks, aes(x=Speeding,y=Distance,color=factor(.cluster))) + geom_point()
 
 ```
 
-
-Task 4: Create a visualization to show how the cluster appear from values of k from 1 to 8. Use a random
-number seed of 412. Which value of k appears to be most appropriate for this data?
 
 ```{r}
 set.seed(412)
@@ -153,11 +140,6 @@ ggplot(trucks, aes(x=Speeding,y=Distance,color=factor(.cluster))) + geom_point()
 
 ```
 
-K value of 4 appears to be the best fit for this data. 
-
-
-Task 5: Create a plot of k versus within cluster sum of squares. Hint: We did this in the first clustering
-lecture. Which value of k appears to be best?
 
 
 ```{r}
@@ -167,14 +149,6 @@ clusters
 ```
 
 
-k value of 4 appears to be the best when looking at cluster sum of squares by cluster. 
-
-
-
-
-
-Task 6: Repeat Task 3 for the number of clusters that you identifed in Task 5. Use the same random number
-seed as in Task 3. Don’t forget to include your visualization. Comment on the resulting clusters.
 
 
 ```{r}
